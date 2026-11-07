@@ -1,132 +1,379 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Vincent Mutei Mutinda | Software Engineer</title>
-  <meta name="description" content="Software engineer building backend systems, data warehouses and Power BI dashboards. Based in Kajiado County, Kenya.">
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Data Analyst | Cloud Data Analytics Enthusiast — transforming raw data into actionable insights." />
+  <title>Cloud Data Analyst &amp; AI Enthusiast | Chukwuemeka Onyekaodiri</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header class="nav">
-    <a href="#top" class="logo">Vincent Mutinda</a>
-    <nav id="links" class="links" aria-label="Main">
-      <a href="#about">About</a>
-      <a href="#experience">Experience</a>
-      <a href="#skills">Skills</a>
-      <a href="#education">Education</a>
-      <a href="#contact">Contact</a>
+
+  <!-- ============ NAV ============ -->
+  <header class="site-header" id="siteHeader">
+    <nav class="nav container">
+      <a href="#top" class="brand">
+        <span class="brand-mark">CO</span>
+        <span class="brand-text">Chukwuemeka</span>
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#blog">Journal</a></li>
+        <li><a href="#resume">Resume</a></li>
+        <li><a href="#contact" class="nav-cta">Get in touch</a></li>
+      </ul>
     </nav>
-    <button id="themeBtn" class="btn-ghost" aria-label="Switch to light mode">Light mode</button>
-    <button id="menuBtn" class="menu" aria-label="Toggle menu" aria-expanded="false">Menu</button>
   </header>
 
   <main id="top">
+
+    <!-- ============ HERO ============ -->
     <section class="hero">
-      <p class="status"><span class="dot"></span> Open to work</p>
-      <h1>Vincent Mutei Mutinda</h1>
-      <p class="role">Software engineer: backend, data and cloud</p>
-      <p class="lead">I build REST APIs, data warehouses and Power BI dashboards that help small and medium businesses make decisions from their own data. Based in Isinya, Kajiado County, Kenya.</p>
-      <div class="cta">
-        <a class="btn" href="#contact">Get in touch</a>
-        <a class="btn-ghost" href="#experience">See my experience</a>
+      <div class="hero-glow" aria-hidden="true"></div>
+      <div class="container hero-inner">
+        <span class="status-badge">
+          <span class="status-dot"></span> Available for opportunities
+        </span>
+        <p class="hero-eyebrow">Data Analyst | Cloud Data Analytics Enthusiast</p>
+        <h1 class="hero-title">
+          <span class="hero-first">Chukwuemeka</span>
+          <span class="hero-last">Onyekaodiri</span>
+        </h1>
+        <p class="hero-lead">
+          Data Analyst with experience transforming raw data into actionable insights through
+          data cleaning, dashboard development, KPI tracking, and analytical reporting.
+        </p>
+        <div class="hero-actions">
+          <a href="#about" class="btn btn-primary">Get to know me</a>
+          <a href="#contact" class="btn btn-ghost">Let's connect</a>
+        </div>
       </div>
     </section>
 
-    <section id="about">
-      <h2>About</h2>
-      <p>I'm a Software Engineering graduate with hands-on experience developing, deploying and maintaining web applications. I also bring a solid background in cloud infrastructure, database management, data engineering and enterprise IT operations.</p>
-      <p>I work with SQL and MongoDB, integrate RESTful APIs, and use Git and CI/CD workflows to ship reliably. My IT support and cybersecurity grounding means I think about secure configuration and uptime from the start.</p>
-    </section>
+    <!-- ============ ABOUT ============ -->
+    <section class="section" id="about">
+      <div class="container">
+        <header class="section-head">
+          <span class="section-kicker">Who I Am</span>
+          <h2 class="section-title">About Me</h2>
+        </header>
 
-    <section id="experience">
-      <h2>Experience</h2>
+        <div class="about-grid">
+          <div class="about-main card">
+            <h3 class="card-title">Chukwuemeka Onyekaodiri</h3>
+            <p>
+              I am a Data Analyst with a growing foundation in Computer Science and
+              Business Administration.
+            </p>
+            <p>
+              My work focuses on transforming data into meaningful insights through
+              dashboard development and analytical reporting.
+            </p>
+            <p>
+              I believe the most powerful solutions come when analytical rigor meets
+              strategic awareness.
+            </p>
+            <p>
+              I am committed to continuous learning, working through hands-on projects,
+              exploring cloud platforms, and staying current with advances in AI, always
+              with the goal of building skills that create real-world impact.
+            </p>
+            <blockquote class="pullquote">
+              "Data is the language; insight is the goal."
+            </blockquote>
+          </div>
 
-      <article class="job">
-        <div class="job-head">
-          <h3>Freelance Software Developer</h3>
-          <span class="date">Apr 2024 to Present</span>
+          <aside class="about-side">
+            <div class="card glance-card">
+              <h4 class="card-label">At a Glance</h4>
+              <ul class="glance-list">
+                <li><span class="glance-key">DATA</span><span class="glance-val">Analytics</span></li>
+                <li><span class="glance-key">BUS</span><span class="glance-val">Business</span></li>
+                <li><span class="glance-key">TECH</span><span class="glance-val">Technology</span></li>
+                <li><span class="glance-key">∞</span><span class="glance-val">Continuous Growth</span></li>
+              </ul>
+            </div>
+
+            <div class="card">
+              <h4 class="card-label">Currently</h4>
+              <ul class="dot-list">
+                <li>Building Data Analytics Projects &amp; Dashboards</li>
+                <li>Advancing SQL &amp; Python for Data Analysis</li>
+                <li>Exploring Cloud Data Analytics Technologies</li>
+                <li>Open to Data Analytics &amp; Business Intelligence Opportunities</li>
+              </ul>
+            </div>
+
+            <div class="card">
+              <h4 class="card-label">Interests &amp; Focus Areas</h4>
+              <div class="tag-row">
+                <span class="tag">Cloud Analytics</span>
+                <span class="tag">Artificial Intelligence</span>
+                <span class="tag">Data Storytelling</span>
+                <span class="tag">Business Strategy</span>
+                <span class="tag">Problem Solving</span>
+                <span class="tag">Continuous Learning</span>
+              </div>
+            </div>
+          </aside>
         </div>
-        <p class="org">Backend development and data solutions, Remote</p>
-        <ul>
-          <li>Build and deploy backend solutions with Node.js and Express.js, including RESTful APIs for business applications and system integrations.</li>
-          <li>Design and manage SQL and MongoDB databases, with a focus on data integrity and ACID transactions.</li>
-          <li>Create small-to-medium data warehouses for retail chains, supermarkets and schools using the Medallion Architecture (Bronze, Silver, Gold).</li>
-          <li>Model data and build interactive Power BI dashboards that turn operational and financial data into clear KPIs.</li>
-          <li>Deploy and maintain applications on AWS with Git and CI/CD, applying secure configuration and access control.</li>
-        </ul>
-      </article>
-
-      <article class="job">
-        <div class="job-head">
-          <h3>IT Assistant (Part-time)</h3>
-          <span class="date">Aug 2025 to Jan 2026</span>
-        </div>
-        <p class="org">Keight Wellness Therapy &amp; Coaching, Nairobi</p>
-        <ul>
-          <li>Improved website load times through caching and image compression.</li>
-          <li>Gave first-line IT support, fixing hardware and software issues in plain language to reduce downtime.</li>
-          <li>Designed digital and print ads in line with the brand identity using Alight Motion.</li>
-        </ul>
-      </article>
-
-      <article class="job">
-        <div class="job-head">
-          <h3>ICT Intern, Networks and Infrastructure</h3>
-          <span class="date">May 2023 to Aug 2023</span>
-        </div>
-        <p class="org">Nairobi City Water and Sewerage Company Ltd</p>
-        <ul>
-          <li>Provided first-line support across hardware, software and networking, escalating complex issues when needed.</li>
-          <li>Installed and maintained enterprise software and security tools, including Oracle DB, Windows OS, Microsoft Outlook, Kaspersky and Bitdefender.</li>
-          <li>Set up workstations, replaced faulty peripherals, maintained printers, and tested and labelled Ethernet cables.</li>
-          <li>Configured proxy settings, IP addresses and ports, and diagnosed network faults with ipconfig and ping.</li>
-          <li>Configured the company Helpdesk application and ran GIS data queries, exporting results to Excel for billing and customer data.</li>
-        </ul>
-      </article>
-    </section>
-
-    <section id="skills">
-      <h2>Skills</h2>
-      <div class="grid">
-        <div class="box"><h3>Software development</h3><p>HTML, CSS, JavaScript, Python, Node.js, Express.js, REST APIs</p></div>
-        <div class="box"><h3>Databases and data engineering</h3><p>SQL, MongoDB, Oracle DB, data modelling, data pipelines, OLTP and OLAP, Medallion Architecture</p></div>
-        <div class="box"><h3>Business intelligence</h3><p>Power BI, data analysis, KPI reporting, dashboards</p></div>
-        <div class="box"><h3>Cloud and DevOps</h3><p>AWS, Git, GitHub Actions, CI/CD, cloud deployment</p></div>
-        <div class="box"><h3>Networking and infrastructure</h3><p>LAN configuration, DNS, DHCP, IP addressing, troubleshooting</p></div>
-        <div class="box"><h3>IT operations and security</h3><p>Windows administration, helpdesk, patch management, antivirus administration, access management</p></div>
       </div>
     </section>
 
-    <section id="education">
-      <h2>Education and certifications</h2>
-      <article class="job">
-        <div class="job-head">
-          <h3>BSc in Software Engineering</h3>
-          <span class="date">Jan 2019 to Apr 2024</span>
-        </div>
-        <p class="org">Murang'a University of Technology, Second Class Honours (Upper Division)</p>
-      </article>
-      <ul class="certs">
-        <li><strong>AWS Infrastructure Fundamentals</strong> <span class="date">July 2026</span></li>
-        <li><strong>Networking Essentials</strong>, Cisco Networking Academy <span class="date">2022</span></li>
-        <li><strong>Network Devices Configuration</strong>, Cisco Networking Academy <span class="date">2022</span></li>
-      </ul>
-    </section>
+    <!-- ============ SKILLS ============ -->
+    <section class="section section-alt" id="skills">
+      <div class="container">
+        <header class="section-head">
+          <span class="section-kicker">What I work with</span>
+          <h2 class="section-title">Skills &amp; Technologies</h2>
+          <span class="section-tag">Skill profile evolving</span>
+        </header>
 
-    <section id="contact">
-      <h2>Contact</h2>
-      <p>I'm interested in backend, API and data roles, and in freelance projects. Reach out and I'll reply as soon as I can.</p>
-      <div class="cta">
-        <a class="btn" href="mailto:vincentmutinda59@gmail.com">vincentmutinda59@gmail.com</a>
-        <a class="btn-ghost" href="tel:+254790390624">+254 790 390 624</a>
-        <a class="btn-ghost" href="https://linkedin.com/in/vincent-mutinda" target="_blank" rel="noopener">LinkedIn</a>
+        <div class="card placeholder-card">
+          <h3 class="card-title">Skills and technologies will appear here</h3>
+          <p>
+            This section will showcase technical capabilities, learning progress, tools,
+            and practical technologies used throughout my cloud data analytics journey.
+          </p>
+        </div>
+
+        <h3 class="subhead">Professional Growth Areas</h3>
+        <p class="subhead-note">
+          Areas I am actively developing to expand my capabilities and deliver greater
+          business value.
+        </p>
+
+        <div class="growth-grid">
+          <article class="growth-card">
+            <h4>Cloud Data Analytics</h4>
+            <p class="growth-meta">Future Learning Path</p>
+            <p class="growth-tools">Cloud Technologies</p>
+            <p class="growth-detail">AWS · Azure · GCP</p>
+          </article>
+          <article class="growth-card">
+            <h4>Data Engineering</h4>
+            <p class="growth-meta">Future Learning Path</p>
+            <p class="growth-tools">Pipelines · Warehouses · ETL</p>
+          </article>
+          <article class="growth-card">
+            <h4>AI-Powered Productivity</h4>
+            <p class="growth-meta">Future Learning Path</p>
+            <p class="growth-tools">Learning · Research · Workflow</p>
+          </article>
+        </div>
+
+        <p class="footnote">
+          Skill levels reflect practical experience gained through projects, coursework,
+          independent study, and applied data analytics work.
+        </p>
       </div>
     </section>
+
+    <!-- ============ PROJECTS ============ -->
+    <section class="section" id="projects">
+      <div class="container">
+        <header class="section-head">
+          <span class="section-kicker">What I've built</span>
+          <h2 class="section-title">Featured Projects</h2>
+          <span class="section-tag">Projects in development</span>
+        </header>
+
+        <div class="card placeholder-card">
+          <h3 class="card-title">Featured projects will appear here</h3>
+          <p>
+            This section will showcase analytics dashboards, cloud data projects,
+            AI experiments, and technical case studies documenting my practical
+            learning journey.
+          </p>
+        </div>
+
+        <a class="btn btn-outline" href="https://github.com/" target="_blank" rel="noopener">
+          View All Projects
+        </a>
+        <p class="footnote">
+          Explore additional projects, technical experiments, and development work on GitHub.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============ BLOG ============ -->
+    <section class="section section-alt" id="blog">
+      <div class="container">
+        <header class="section-head">
+          <span class="section-kicker">Thoughts &amp; reflections</span>
+          <h2 class="section-title">Learning Journal &amp; Blog</h2>
+          <p class="section-lead">
+            A space where I document what I'm learning — the wins, the mistakes, and the
+            moments that finally made something click.
+          </p>
+          <span class="section-tag" id="articleCount">Showing 0 articles</span>
+        </header>
+
+        <div class="card placeholder-card">
+          <p class="card-kicker">Learning journal coming soon</p>
+          <h3 class="card-title">New articles are on the way</h3>
+          <p>
+            This section will document project learnings, technical growth, experiments,
+            and reflections from my journey into cloud data analytics and AI.
+          </p>
+          <p class="card-kicker">Get notified</p>
+          <a class="btn btn-primary" href="#contact">Stay in the loop</a>
+        </div>
+
+        <div class="blog-cta">
+          <h3>Follow My Learning Journey</h3>
+          <p>
+            Documenting skills, projects, certifications, and real-world data analytics
+            experiences.
+          </p>
+          <p class="footnote">
+            Every article documents a real step in my journey from learning to
+            professional application.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ RESUME ============ -->
+    <section class="section" id="resume">
+      <div class="container">
+        <header class="section-head">
+          <span class="section-kicker">Career profile</span>
+          <h2 class="section-title">Resume</h2>
+          <span class="section-tag">Open to opportunities</span>
+        </header>
+
+        <div class="resume-grid">
+          <div class="card resume-main">
+            <h3 class="card-title">My professional profile is one click away</h3>
+            <p>
+              I am a Data Analyst with a foundation in business, technology, and analytical
+              problem-solving. My work focuses on transforming raw data into actionable
+              insights through data cleaning, KPI reporting, dashboard development, and
+              analytical storytelling. Alongside delivering practical analytics projects,
+              I am continuously expanding my capabilities in SQL, Python, Cloud Data
+              Analytics, and Business Intelligence.
+            </p>
+            <blockquote class="pullquote">
+              "Hardworking, curious, and committed to growing through every project."
+            </blockquote>
+
+            <div class="resume-loader" id="resumeLoader">
+              <div class="resume-state" data-state="loading">
+                <span class="spinner"></span> Preparing resume...
+              </div>
+              <div class="resume-state" data-state="loading-data">
+                Loading resume data...
+              </div>
+              <div class="resume-state" data-state="unavailable" hidden>
+                Resume preview unavailable
+              </div>
+            </div>
+
+            <div class="resume-actions">
+              <a class="btn btn-primary" href="#" id="downloadResume">Download Resume</a>
+            </div>
+          </div>
+
+          <aside class="card resume-side">
+            <h4 class="card-label">At a glance</h4>
+            <ul class="glance-list">
+              <li><span class="glance-key">DATA</span><span class="glance-val">Analysis</span></li>
+              <li><span class="glance-key">BUS</span><span class="glance-val">Business Insight</span></li>
+              <li><span class="glance-key">TECH</span><span class="glance-val">Technology</span></li>
+              <li><span class="glance-key">∞</span><span class="glance-val">Continuous Growth</span></li>
+            </ul>
+
+            <h4 class="card-label">Professional highlights</h4>
+            <div class="tag-row">
+              <span class="tag">Data Analytics</span>
+              <span class="tag">Dashboard Development</span>
+              <span class="tag">KPI Reporting</span>
+              <span class="tag">Business Intelligence</span>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section class="section section-alt" id="contact">
+      <div class="container">
+        <header class="section-head">
+          <span class="section-kicker">Get in touch</span>
+          <h2 class="section-title">Let's connect</h2>
+          <span class="section-tag">Available for internships &amp; entry-level roles</span>
+          <p class="section-lead">
+            Whether you have a collaboration opportunity, internship opening, project idea,
+            or simply want to connect, I would be glad to hear from you. I enjoy
+            collaborating on projects, solving business problems, sharing insights, and
+            building meaningful professional relationships around data and technology.
+          </p>
+          <p class="section-meta">Data Analytics · Business Intelligence · Technology</p>
+        </header>
+
+        <div class="contact-grid">
+          <div class="card contact-card">
+            <h3 class="card-title">Send a message</h3>
+            <form class="contact-form" id="contactForm" novalidate>
+              <label>
+                <span>Name</span>
+                <input type="text" name="name" required placeholder="Your name" />
+              </label>
+              <label>
+                <span>Email</span>
+                <input type="email" name="email" required placeholder="you@example.com" />
+              </label>
+              <label>
+                <span>Message</span>
+                <textarea name="message" rows="5" required placeholder="How can I help?"></textarea>
+              </label>
+              <button type="submit" class="btn btn-primary">Send message</button>
+              <p class="form-note" id="formNote" role="status"></p>
+            </form>
+          </div>
+
+          <aside class="card contact-side">
+            <h4 class="card-label">Open to connect</h4>
+            <ul class="contact-list">
+              <li>
+                <span class="contact-label">Response time</span>
+                <span class="contact-value">Typically responds within 24–48 hours</span>
+              </li>
+              <li>
+                <span class="contact-label">Best route</span>
+                <span class="contact-value">Email is the fastest route for formal enquiries</span>
+              </li>
+              <li>
+                <span class="contact-label">Location</span>
+                <span class="contact-value">Based in West Africa · Open to remote opportunities</span>
+              </li>
+            </ul>
+          </aside>
+        </div>
+      </div>
+    </section>
+
   </main>
 
-  <footer>&copy; <span id="year"></span> Vincent Mutei Mutinda</footer>
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p class="footer-name">Chukwuemeka Onyekaodiri</p>
+      <p class="footer-copy">
+        © 2026 Chukwuemeka Onyekaodiri · Built with curiosity, consistency, and continuous learning
+      </p>
+    </div>
+  </footer>
+
   <script src="script.js"></script>
 </body>
-  </html>
-  
+                                                        </html>
