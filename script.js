@@ -1,5 +1,5 @@
 /* ============================================================
-   Portfolio interactions
+   Portfolio interactions — Vincent Mutei Mutinda
    ============================================================ */
 
 (function () {
@@ -37,7 +37,7 @@
 
   /* ---------- Reveal on scroll ---------- */
   const revealTargets = document.querySelectorAll(
-    '.section-head, .card, .growth-card, .blog-cta, .resume-actions, .hero-actions'
+    '.section-head, .card, .skill-card, .growth-card, .project-card, .timeline-item, .hero-actions'
   );
 
   revealTargets.forEach((el) => el.classList.add('reveal'));
@@ -52,47 +52,12 @@
           }
         });
       },
-      { threshold: 0.12, rootMargin: '0px 0px -60px 0px' }
+      { threshold: 0.1, rootMargin: '0px 0px -60px 0px' }
     );
     revealTargets.forEach((el) => io.observe(el));
   } else {
     revealTargets.forEach((el) => el.classList.add('visible'));
   }
-
-  /* ---------- Resume loader state machine ---------- */
-  const resumeLoader = document.getElementById('resumeLoader');
-  if (resumeLoader) {
-    const states = resumeLoader.querySelectorAll('.resume-state');
-    const showState = (name) => {
-      states.forEach((s) => {
-        s.hidden = s.dataset.state !== name;
-      });
-    };
-
-    // Simulated fetch — replace with a real fetch() to your resume JSON/PDF
-    setTimeout(() => showState('loading-data'), 900);
-    setTimeout(() => showState('unavailable'), 2200);
-  }
-
-  const downloadResume = document.getElementById('downloadResume');
-  if (downloadResume) {
-    downloadResume.addEventListener('click', (e) => {
-      e.preventDefault();
-      // Point this at your actual resume file, e.g. /resume.pdf
-      window.open('resume.pdf', '_blank', 'noopener');
-    });
-  }
-
-  /* ---------- Article counter (blog) ---------- */
-  const articleCount = document.getElementById('articleCount');
-  const setArticleCount = (n) => {
-    if (!articleCount) return;
-    articleCount.textContent = `Showing ${n} article${n === 1 ? '' : 's'}`;
-  };
-
-  // Replace with a real fetch to your posts source
-  const posts = [];
-  setArticleCount(posts.length);
 
   /* ---------- Contact form ---------- */
   const form = document.getElementById('contactForm');
@@ -121,14 +86,13 @@
         return;
       }
 
-      /* --- Wire this up to your backend / Formspree / mailto ---
-         Example with Formspree:
+      /* Wire this to Formspree / your API endpoint:
          fetch('https://formspree.io/f/YOUR_ID', {
            method: 'POST',
            headers: { 'Accept': 'application/json' },
            body: data
-         }).then(...)
-      ---------------------------------------------------------- */
+         }).then(r => r.ok ? ... : ...)
+      ---------------------------------------------------- */
 
       note.textContent = `Thanks, ${name.split(' ')[0]} — your message is ready to send.`;
       note.classList.add('ok');
@@ -155,11 +119,5 @@
       { rootMargin: '-45% 0px -50% 0px' }
     );
     sections.forEach((s) => navObserver.observe(s));
-  }
-
-  /* ---------- Year in footer (safety) ---------- */
-  const yearEl = document.querySelector('.footer-copy');
-  if (yearEl && !yearEl.textContent.includes('2026')) {
-    yearEl.textContent = yearEl.textContent.replace(/\d{4}/, '2026');
   }
 })();
