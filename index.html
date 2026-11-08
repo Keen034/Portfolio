@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no-js">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Vincent Mutei Mutinda — Backend Software Engineer building APIs, data pipelines and cloud-native data solutions." />
   <title>Backend Software Engineer | Vincent Mutei Mutinda</title>
+  <script>document.documentElement.classList.remove('no-js');</script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -16,19 +17,20 @@
   <header class="site-header" id="siteHeader">
     <nav class="nav container">
       <a href="#top" class="brand">
-        <span class="brand-mark">VM</span>
-        <span class="brand-text">Vincent Mutinda</span>
+        <span class="brand-text">CO.</span>
       </a>
-      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navLinks">
         <span></span><span></span><span></span>
       </button>
       <ul class="nav-links" id="navLinks">
+        <li><a href="#top">Home</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="#skills">Skills</a></li>
         <li><a href="#projects">Projects</a></li>
+        <li><a href="#certifications">Certifications</a></li>
         <li><a href="#experience">Experience</a></li>
         <li><a href="#resume">Resume</a></li>
-        <li><a href="#contact" class="nav-cta">Get in touch</a></li>
+        <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
   </header>
@@ -39,22 +41,33 @@
     <section class="hero">
       <div class="hero-glow" aria-hidden="true"></div>
       <div class="container hero-inner">
-        <span class="status-badge">
-          <span class="status-dot"></span> Available for backend engineering roles
-        </span>
-        <p class="hero-eyebrow">Backend Software Engineer | APIs · Data · Cloud</p>
-        <h1 class="hero-title">
-          <span class="hero-first">Vincent Mutei</span>
-          <span class="hero-last">Mutinda</span>
-        </h1>
-        <p class="hero-lead">
-          Software Engineering graduate building backend systems in Node.js and Express —
-          RESTful APIs, SQL and MongoDB data layers, Medallion-architecture warehouses, and
-          Power BI reporting that turns operational data into decisions.
-        </p>
-        <div class="hero-actions">
-          <a href="#projects" class="btn btn-primary">See what I've built</a>
-          <a href="#contact" class="btn btn-ghost">Let's connect</a>
+        <div class="hero-copy">
+          <span class="status-badge">
+            <span class="status-dot"></span> Available for backend engineering roles
+          </span>
+          <p class="hero-eyebrow">Backend Software Engineer | APIs · Data · Cloud</p>
+          <h1 class="hero-title">
+            <span class="hero-first">Vincent Mutei</span>
+            <span class="hero-last">Mutinda</span>
+          </h1>
+          <p class="hero-lead">
+            Software Engineering graduate building backend systems in Node.js and Express —
+            RESTful APIs, SQL and MongoDB data layers, Medallion-architecture warehouses, and
+            Power BI reporting that turns operational data into decisions.
+          </p>
+          <div class="hero-actions">
+            <a href="#projects" class="btn btn-primary">See what I've built</a>
+            <a href="#contact" class="btn btn-ghost">Let's connect</a>
+          </div>
+        </div>
+
+        <div class="hero-photo-wrap">
+          <div class="hero-photo">
+            <!-- Replace src with your actual image file placed in the repo root -->
+            <img src="profile.jpg" alt="Portrait of Vincent Mutei Mutinda" id="profilePhoto"
+                 onerror="this.classList.add('photo-missing'); this.alt='Add profile.jpg to the repository root';" />
+            <span class="photo-fallback">VM</span>
+          </div>
         </div>
       </div>
     </section>
@@ -150,12 +163,9 @@
           <article class="skill-card">
             <h4>Software Development</h4>
             <div class="tag-row">
-              <span class="tag">JavaScript</span>
-              <span class="tag">Node.js</span>
-              <span class="tag">Express.js</span>
-              <span class="tag">Python</span>
-              <span class="tag">HTML</span>
-              <span class="tag">CSS</span>
+              <span class="tag">JavaScript</span><span class="tag">Node.js</span>
+              <span class="tag">Express.js</span><span class="tag">Python</span>
+              <span class="tag">HTML</span><span class="tag">CSS</span>
               <span class="tag">RESTful APIs</span>
             </div>
           </article>
@@ -163,12 +173,9 @@
           <article class="skill-card">
             <h4>Databases &amp; Data Engineering</h4>
             <div class="tag-row">
-              <span class="tag">SQL</span>
-              <span class="tag">MongoDB</span>
-              <span class="tag">Oracle DB</span>
-              <span class="tag">Data Modelling</span>
-              <span class="tag">Data Pipelines</span>
-              <span class="tag">OLTP / OLAP</span>
+              <span class="tag">SQL</span><span class="tag">MongoDB</span>
+              <span class="tag">Oracle DB</span><span class="tag">Data Modelling</span>
+              <span class="tag">Data Pipelines</span><span class="tag">OLTP / OLAP</span>
               <span class="tag">Medallion Architecture</span>
             </div>
           </article>
@@ -176,20 +183,16 @@
           <article class="skill-card">
             <h4>Business Intelligence</h4>
             <div class="tag-row">
-              <span class="tag">Power BI</span>
-              <span class="tag">Data Analysis</span>
-              <span class="tag">KPI Reporting</span>
-              <span class="tag">BI Dashboards</span>
+              <span class="tag">Power BI</span><span class="tag">Data Analysis</span>
+              <span class="tag">KPI Reporting</span><span class="tag">BI Dashboards</span>
             </div>
           </article>
 
           <article class="skill-card">
             <h4>Cloud &amp; DevOps</h4>
             <div class="tag-row">
-              <span class="tag">AWS</span>
-              <span class="tag">Git</span>
-              <span class="tag">GitHub Actions</span>
-              <span class="tag">CI/CD</span>
+              <span class="tag">AWS</span><span class="tag">Git</span>
+              <span class="tag">GitHub Actions</span><span class="tag">CI/CD</span>
               <span class="tag">Cloud Deployment</span>
             </div>
           </article>
@@ -197,10 +200,8 @@
           <article class="skill-card">
             <h4>Networking &amp; Infrastructure</h4>
             <div class="tag-row">
-              <span class="tag">LAN Configuration</span>
-              <span class="tag">DNS</span>
-              <span class="tag">DHCP</span>
-              <span class="tag">IP Addressing</span>
+              <span class="tag">LAN Configuration</span><span class="tag">DNS</span>
+              <span class="tag">DHCP</span><span class="tag">IP Addressing</span>
               <span class="tag">Network Troubleshooting</span>
             </div>
           </article>
@@ -208,12 +209,9 @@
           <article class="skill-card">
             <h4>Systems, IT Operations &amp; Security</h4>
             <div class="tag-row">
-              <span class="tag">Windows Administration</span>
-              <span class="tag">Helpdesk Support</span>
-              <span class="tag">Enterprise App Deployment</span>
-              <span class="tag">Patch Management</span>
-              <span class="tag">Secure Configuration</span>
-              <span class="tag">Access Management</span>
+              <span class="tag">Windows Administration</span><span class="tag">Helpdesk Support</span>
+              <span class="tag">Enterprise App Deployment</span><span class="tag">Patch Management</span>
+              <span class="tag">Secure Configuration</span><span class="tag">Access Management</span>
             </div>
           </article>
         </div>
@@ -240,11 +238,6 @@
             <p class="growth-tools">AWS · CI/CD · Secure Deployment</p>
           </article>
         </div>
-
-        <p class="footnote">
-          Skill levels reflect practical experience gained through freelance client work,
-          industry internships, coursework, and independent study.
-        </p>
       </div>
     </section>
 
@@ -267,10 +260,8 @@
               configuration, deployment, monitoring, and post-launch maintenance.
             </p>
             <div class="tag-row">
-              <span class="tag">Node.js</span>
-              <span class="tag">Express.js</span>
-              <span class="tag">REST</span>
-              <span class="tag">AWS</span>
+              <span class="tag">Node.js</span><span class="tag">Express.js</span>
+              <span class="tag">REST</span><span class="tag">AWS</span>
             </div>
           </article>
 
@@ -283,10 +274,8 @@
               ingest, clean, transform and organise business data for analytical use.
             </p>
             <div class="tag-row">
-              <span class="tag">Medallion</span>
-              <span class="tag">SQL</span>
-              <span class="tag">ETL</span>
-              <span class="tag">Data Modelling</span>
+              <span class="tag">Medallion</span><span class="tag">SQL</span>
+              <span class="tag">ETL</span><span class="tag">Data Modelling</span>
             </div>
           </article>
 
@@ -299,8 +288,7 @@
               identify trends and make informed decisions.
             </p>
             <div class="tag-row">
-              <span class="tag">Power BI</span>
-              <span class="tag">KPIs</span>
+              <span class="tag">Power BI</span><span class="tag">KPIs</span>
               <span class="tag">Reporting</span>
             </div>
           </article>
@@ -314,28 +302,45 @@
               and reliable data operations.
             </p>
             <div class="tag-row">
-              <span class="tag">SQL</span>
-              <span class="tag">MongoDB</span>
-              <span class="tag">ACID</span>
-              <span class="tag">Schema Design</span>
+              <span class="tag">SQL</span><span class="tag">MongoDB</span>
+              <span class="tag">ACID</span><span class="tag">Schema Design</span>
             </div>
           </article>
         </div>
+      </div>
+    </section>
 
-        <div class="projects-footer">
-          <a class="btn btn-outline" href="https://linkedin.com/in/vincent-mutinda" target="_blank" rel="noopener">
-            Connect on LinkedIn
-          </a>
-          <p class="footnote">
-            More project detail and technical write-ups available on request — reach out via
-            the contact section below.
-          </p>
+    <!-- ============ CERTIFICATIONS ============ -->
+    <section class="section section-alt" id="certifications">
+      <div class="container">
+        <header class="section-head">
+          <span class="section-kicker">Credentials</span>
+          <h2 class="section-title">Certifications</h2>
+          <span class="section-tag">Verified training</span>
+        </header>
+
+        <div class="cert-grid">
+          <article class="cert-card">
+            <p class="card-kicker">AWS</p>
+            <h3 class="card-title">AWS Infrastructure Fundamentals</h3>
+            <p class="cert-date">July 2026</p>
+          </article>
+          <article class="cert-card">
+            <p class="card-kicker">Cisco Networking Academy</p>
+            <h3 class="card-title">Networking Essentials</h3>
+            <p class="cert-date">2022</p>
+          </article>
+          <article class="cert-card">
+            <p class="card-kicker">Cisco Networking Academy</p>
+            <h3 class="card-title">Network Devices Configuration</h3>
+            <p class="cert-date">2022</p>
+          </article>
         </div>
       </div>
     </section>
 
     <!-- ============ EXPERIENCE ============ -->
-    <section class="section section-alt" id="experience">
+    <section class="section" id="experience">
       <div class="container">
         <header class="section-head">
           <span class="section-kicker">Where I've worked</span>
@@ -344,7 +349,6 @@
         </header>
 
         <div class="timeline">
-
           <article class="timeline-item">
             <div class="timeline-marker"></div>
             <div class="timeline-body card">
@@ -389,34 +393,263 @@
                 <li>Installed, configured and maintained enterprise software and security applications including Oracle DB, SPMS, BASIS II, Microsoft Outlook, Utility Master, Kaspersky and Bitdefender.</li>
                 <li>Performed workstation setup, preventive hardware maintenance, peripheral replacement, printer maintenance and Ethernet cable testing/labelling.</li>
                 <li>Configured proxy settings, IP addresses, domain names and port numbers; diagnosed connectivity issues using <code>ipconfig</code> and <code>ping</code>.</li>
-                <li>Configured the company-wide Helpdesk application for password resets and domain account requests; ran GIS data analysis with database queries and filters, exporting results to Excel for billing and customer data management.</li>
+                <li>Configured the company-wide Helpdesk application for password resets and domain account requests; ran GIS data analysis with database queries and filters, exporting results to Excel.</li>
               </ul>
             </div>
           </article>
-
         </div>
       </div>
     </section>
 
-    <!-- ============ RESUME ============ -->
-    <section class="section" id="resume">
+ <!-- ============ RESUME / CV ============ -->
+    <section class="section section-alt" id="resume">
       <div class="container">
         <header class="section-head">
           <span class="section-kicker">Career profile</span>
-          <h2 class="section-title">Resume</h2>
+          <h2 class="section-title">Curriculum Vitae</h2>
           <span class="section-tag">Open to opportunities</span>
         </header>
 
-        <div class="resume-grid">
-          <div class="card resume-main">
-            <h3 class="card-title">Backend engineer with data depth — one click away</h3>
-            <p>
-              Software Engineering graduate with practical experience developing, deploying and
-              maintaining web-based applications, alongside hands-on experience in cloud
-              infrastructure, database management, data engineering and enterprise IT operations.
-            </p>
-            <p>
-              Skilled in building backend solutions, integrating RESTful APIs, working with SQL
-              and NoSQL databases, and implementing version control and CI/CD workflows.
-              Experienced in data warehousing, data modelling and business intelligence reporting,
-              with a strong supporti
+        <div class="cv-grid">
+          <div class="cv-main">
+            <div class="card">
+              <h3 class="card-title">Backend engineer with data depth</h3>
+              <p>
+                Software Engineering graduate with practical experience developing, deploying and
+                maintaining web-based applications, alongside hands-on experience in cloud
+                infrastructure, database management, data engineering and enterprise IT operations.
+              </p>
+              <p>
+                Skilled in building backend solutions, integrating RESTful APIs, working with SQL
+                and NoSQL databases, and implementing version control and CI/CD workflows.
+                Experienced in data warehousing, data modelling and business intelligence reporting,
+                with a strong supporting understanding of IT infrastructure, cybersecurity and
+                technical support.
+              </p>
+
+              <div class="cv-facts">
+                <div class="fact">
+                  <span class="fact-label">Education</span>
+                  <span class="fact-value">BSc Software Engineering — Murang'a University of Technology</span>
+                  <span class="fact-note">Second Class Honours (Upper Division)</span>
+                </div>
+                <div class="fact">
+                  <span class="fact-label">Certifications</span>
+                  <span class="fact-value">AWS Infrastructure Fundamentals (Jul 2026)</span>
+                  <span class="fact-note">Cisco Networking Academy — Networking Essentials (2022), Network Devices Configuration (2022)</span>
+                </div>
+                <div class="fact">
+                  <span class="fact-label">Languages &amp; Contact</span>
+                  <span class="fact-value">Isinya, Kajiado County, Kenya</span>
+                  <span class="fact-note">+254 790 390 624 · vincentmutinda59@gmail.com</span>
+                </div>
+              </div>
+
+              <div class="cv-actions">
+                <a class="btn btn-primary" href="resume.pdf" download="Vincent-Mutinda-CV.pdf" id="cvDownload">
+                  Download CV (PDF)
+                </a>
+                <button class="btn btn-ghost" type="button" id="cvPreviewToggle" aria-expanded="false" aria-controls="cvPreviewPanel">
+                  Preview CV
+                </button>
+              </div>
+            </div>
+
+            <div class="cv-preview" id="cvPreviewPanel" hidden>
+              <div class="cv-preview-head">
+                <span class="card-label">CV preview</span>
+                <a href="resume.pdf" target="_blank" rel="noopener" class="cv-open">Open in new tab ↗</a>
+              </div>
+              <object data="resume.pdf" type="application/pdf" class="cv-object">
+                <div class="cv-fallback">
+                  <p>Your browser can't display the PDF inline.</p>
+                  <a class="btn btn-outline" href="resume.pdf" download>Download the CV instead</a>
+                </div>
+              </object>
+            </div>
+          </div>
+
+          <aside class="card cv-side">
+            <h4 class="card-label">At a glance</h4>
+            <ul class="glance-list">
+              <li><span class="glance-key">CODE</span><span class="glance-val">Backend Engineering</span></li>
+              <li><span class="glance-key">API</span><span class="glance-val">REST &amp; Integrations</span></li>
+              <li><span class="glance-key">DATA</span><span class="glance-val">SQL · MongoDB · Warehousing</span></li>
+              <li><span class="glance-key">∞</span><span class="glance-val">Continuous Growth</span></li>
+            </ul>
+
+            <h4 class="card-label">Professional highlights</h4>
+            <div class="tag-row">
+              <span class="tag">Backend Development</span>
+              <span class="tag">RESTful APIs</span>
+              <span class="tag">Data Engineering</span>
+              <span class="tag">Power BI</span>
+              <span class="tag">AWS &amp; CI/CD</span>
+            </div>
+
+            <h4 class="card-label">References</h4>
+            <ul class="ref-list">
+              <li>
+                <span class="ref-name">Mr. Joshua Mutua Katambo</span>
+                <span class="ref-role">ICT Officer, NCWSC</span>
+              </li>
+              <li>
+                <span class="ref-name">Ms. Caroline Ogembo</span>
+                <span class="ref-role">Coordinator, Gender &amp; Disability, Murang'a University of Technology</span>
+              </li>
+              <li>
+                <span class="ref-name">Mrs. Gatwiri Muthoka</span>
+                <span class="ref-role">CEO, Keight Wellness Therapy &amp; Coaching</span>
+              </li>
+            </ul>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section class="section contact-section" id="contact">
+      <div class="container">
+        <header class="contact-head">
+          <span class="section-kicker">Let's connect</span>
+          <h2 class="contact-title">Get In Touch</h2>
+          <div class="contact-divider"><span class="contact-dot"></span></div>
+          <span class="contact-tagline">Open to connect</span>
+          <p class="contact-lead">
+            Whether you have a collaboration opportunity, internship opening, project idea, or simply want to
+            connect, I would be glad to hear from you. I enjoy collaborating on projects, solving business
+            problems, sharing insights, and building meaningful professional relationships around data and
+            technology.
+          </p>
+        </header>
+
+        <div class="contact-cards">
+          <a class="contact-card" href="mailto:vincentmutinda59@gmail.com?subject=Portfolio%20Enquiry">
+            <div class="contact-card-head">
+              <span class="contact-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+              </span>
+              <span class="contact-arrow" aria-hidden="true">↗</span>
+            </div>
+            <span class="contact-label-sm">Email</span>
+            <h3 class="contact-card-title">Send an Email</h3>
+            <p class="contact-card-sub">vincentmutinda59@gmail.com</p>
+            <p class="contact-card-body">Best for detailed enquiries, collaboration proposals, and formal opportunities.</p>
+            <span class="contact-card-cta">Send an email <span aria-hidden="true">↗</span></span>
+          </a>
+
+          <a class="contact-card" href="https://linkedin.com/in/vincent-mutinda" target="_blank" rel="noopener">
+            <div class="contact-card-head">
+              <span class="contact-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05C20.3 8.65 21 11 21 14.1V21h-4v-6.1c0-1.45-.03-3.3-2-3.3-2 0-2.3 1.57-2.3 3.2V21H9z"/></svg>
+              </span>
+              <span class="contact-arrow" aria-hidden="true">↗</span>
+            </div>
+            <span class="contact-label-sm">LinkedIn</span>
+            <h3 class="contact-card-title">View Profile</h3>
+            <p class="contact-card-sub">linkedin.com/in/vincent-mutinda</p>
+            <p class="contact-card-body">Connect professionally, view my full profile, and stay updated on my journey.</p>
+            <span class="contact-card-cta">View profile <span aria-hidden="true">↗</span></span>
+          </a>
+
+          <a class="contact-card" href="https://github.com/" target="_blank" rel="noopener">
+            <div class="contact-card-head">
+              <span class="contact-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5a12 12 0 0 0-3.79 23.39c.6.11.82-.26.82-.58v-2c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.8 1.3 3.49 1 .1-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.12-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.29-1.55 3.29-1.23 3.29-1.23.66 1.66.25 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.62-5.49 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.22.7.83.58A12 12 0 0 0 12 .5z"/></svg>
+              </span>
+              <span class="contact-arrow" aria-hidden="true">↗</span>
+            </div>
+            <span class="contact-label-sm">GitHub</span>
+            <h3 class="contact-card-title">View Repositories</h3>
+            <p class="contact-card-sub">github.com/vincentmutinda</p>
+            <p class="contact-card-body">Explore my repositories, backend projects, and code contributions.</p>
+            <span class="contact-card-cta">View repositories <span aria-hidden="true">↗</span></span>
+          </a>
+
+          <a class="contact-card" href="https://x.com/" target="_blank" rel="noopener">
+            <div class="contact-card-head">
+              <span class="contact-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.53 3H21l-7.19 8.21L22 21h-6.56l-5.14-6.71L4.4 21H1l7.69-8.79L2 3h6.72l4.65 6.15L17.53 3zm-1.15 16h1.91L7.7 4.9H5.65L16.38 19z"/></svg>
+              </span>
+              <span class="contact-arrow" aria-hidden="true">↗</span>
+            </div>
+            <span class="contact-label-sm">Twitter / X</span>
+            <h3 class="contact-card-title">Follow on X</h3>
+            <p class="contact-card-sub">@vincentmutinda</p>
+            <p class="contact-card-body">Follow my journey, thoughts, and insights around backend engineering, data, and continuous learning.</p>
+            <span class="contact-card-cta">Follow on X <span aria-hidden="true">↗</span></span>
+          </a>
+        </div>
+
+        <div class="contact-meta">
+          <div class="contact-meta-item">
+            <span class="contact-icon contact-icon-sm" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+            </span>
+            <div>
+              <p class="contact-meta-title">Typically responds within 24–48 hours</p>
+              <p class="contact-meta-sub">Email is the fastest route for formal enquiries</p>
+            </div>
+          </div>
+          <div class="contact-meta-item contact-meta-right">
+            <span class="contact-icon contact-icon-sm" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg>
+            </span>
+            <p class="contact-meta-sub">Based in Kajiado County, Kenya · Open to remote opportunities</p>
+          </div>
+        </div>
+
+        <!-- Direct email form (opens the visitor's mail client pre-filled) -->
+        <div class="card email-form-card">
+          <h3 class="card-title">Or write me directly</h3>
+          <form class="contact-form" id="contactForm" novalidate>
+            <div class="form-row">
+              <label>
+                <span>Your name</span>
+                <input type="text" name="name" required placeholder="Your name" />
+              </label>
+              <label>
+                <span>Your email</span>
+                <input type="email" name="email" required placeholder="you@example.com" />
+              </label>
+            </div>
+            <label>
+              <span>Subject</span>
+              <input type="text" name="subject" placeholder="What is this about?" />
+            </label>
+            <label>
+              <span>Message</span>
+              <textarea name="message" rows="5" required placeholder="How can I help?"></textarea>
+            </label>
+            <button type="submit" class="btn btn-primary">Open email draft</button>
+            <p class="form-note" id="formNote" role="status"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p class="footer-name">Vincent Mutei Mutinda</p>
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="#top">Home</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#certifications">Certifications</a>
+        <a href="#experience">Experience</a>
+        <a href="#resume">Resume</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <p class="footer-copy">
+        © 2026 Vincent Mutei Mutinda · Backend engineering, data, and continuous learning
+      </p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
