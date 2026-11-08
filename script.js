@@ -7,40 +7,62 @@
 
   /* ---------- Sticky header shadow ---------- */
   const header = document.getElementById('siteHeader');
-  const onScroll = () => {
-    header.classList.toggle('scrolled', window.scrollY > 12);
-  };
-  onScroll();
-  window.addEventListener('scroll', onScroll, { passive: true });
+  if (header) {
+    const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 12);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+  }
 
   /* ---------- Mobile nav ---------- */
   const navToggle = document.getElementById('navToggle');
   const navLinks = document.getElementById('navLinks');
 
-  const closeNav = () => {
-    navLinks.classList.remove('open');
-    navToggle.setAttribute('aria-expanded', 'false');
-  };
+  if (navToggle && navLinks) {
+    const setOpen = (open) => {
+      navLinks.classList.toggle('open', open);
+      navToggle.setAttribute('aria-expanded', String(open));
+      document.body.classList.toggle('nav-open', open);
+    };
 
-  navToggle.addEventListener('click', () => {
-    const open = navLinks.classList.toggle('open');
-    navToggle.setAttribute('aria-expanded', String(open));
-  });
+    const isOpen = () => navLinks.classList.contains('open');
 
-  navLinks.querySelectorAll('a').forEach((link) => {
-    link.addEventListener('click', closeNav);
-  });
+    navToggle.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      setOpen(!isOpen());
+    });
 
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') closeNav();
-  });
+    // Close after choosing a link
+    navLinks.querySelectorAll('a').forEach((a) => {
+      a.addEventListener('click', () => setOpen(false));
+    });
 
-  /* ---------- Reveal on scroll ---------- */
+    // Close on Escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && isOpen()) setOpen(false);
+    });
+
+    // Close when tapping outside
+    document.addEventListener('click', (e) => {
+      if (!isOpen()) return;
+      if (navLinks.contains(e.target) || navToggle.contains(e.target)) return;
+      setOpen(false);
+    });
+
+    // Close when resizing up to desktop
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 820 && isOpen()) setOpen(false);
+    });
+  }
+
+  /* ---------- Reveal on scroll (safe: never leaves content hidden) ---------- */
   const revealTargets = document.querySelectorAll(
-    '.section-head, .card, .skill-card, .growth-card, .project-card, .timeline-item, .hero-actions'
+    '.section-head, .card, .skill-card, .growth-card, .project-card, .cert-card, .timeline-item, .contact-card, .contact-head, .hero-actions, .contact-meta'
   );
 
   revealTargets.forEach((el) => el.classList.add('reveal'));
+
+  const showAll = () => revealTargets.forEach((el) => el.classList.add('visible'));
 
   if ('IntersectionObserver' in window) {
     const io = new IntersectionObserver(
@@ -52,14 +74,49 @@
           }
         });
       },
-      { threshold: 0.1, rootMargin: '0px 0px -60px 0px' }
+      { threshold: 0, rootMargin: '0px 0px -10% 0px' }
     );
     revealTargets.forEach((el) => io.observe(el));
+
+    // Safety net for tall elements the observer might miss
+    setTimeout(showAll, 2500);
+
+    // Anything already in viewport on load
+    revealTargets.forEach((el) => {
+      const r = el.getBoundingClientRect();
+      if (r.top < window.innerHeight) el.classList.add('visible');
+    });
   } else {
-    revealTargets.forEach((el) => el.classList.add('visible'));
+    showAll();
   }
 
-  /* ---------- Contact form ---------- */
+  // Guarantee: when you reach the bottom, everything is visible
+  window.addEventListener('scroll', () => {
+    if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 80) showAll();
+  }, { passive: true });
+
+  /* ---------- CV preview toggle ---------- */
+  const cvToggle = document.getElementById('cvPreviewToggle');
+  const cvPanel = document.getElementById('cvPreviewPanel');
+
+  if (cvToggle && cvPanel) {
+    cvToggle.addEventListener('click', () => {
+      const open = cvPanel.hasAttribute('hidden');
+      if (open) {
+        cvPanel.removeAttribute('hidden');
+        cvToggle.textContent = 'Hide CV';
+        cvToggle.setAttribute('aria-expanded', 'true');
+        cvPanel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      } else {
+        cvPanel.setAttribute('hidden', '');
+        cvToggle.textContent = 'Preview CV';
+        cvToggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+  }
+
+  /* ---------- Contact form → opens the visitor's email client ---------- */
+  const OWN_EMAIL = 'vincentmutinda59@gmail.com';
   const form = document.getElementById('contactForm');
   const note = document.getElementById('formNote');
 
@@ -71,32 +128,36 @@
       const data = new FormData(form);
       const name = String(data.get('name') || '').trim();
       const email = String(data.get('email') || '').trim();
+      const subject = String(data.get('subject') || '').trim();
       const message = String(data.get('message') || '').trim();
 
       if (!name || !email || !message) {
-        note.textContent = 'Please fill in all fields.';
+        note.textContent = 'Please fill in your name, email and message.';
         note.classList.add('err');
         return;
       }
-
-      const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email);
-      if (!emailOk) {
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) {
         note.textContent = 'Please enter a valid email address.';
         note.classList.add('err');
         return;
       }
 
-      /* Wire this to Formspree / your API endpoint:
-         fetch('https://formspree.io/f/YOUR_ID', {
-           method: 'POST',
-           headers: { 'Accept': 'application/json' },
-           body: data
-         }).then(r => r.ok ? ... : ...)
-      ---------------------------------------------------- */
+      const finalSubject = subject || `Portfolio enquiry from ${name}`;
+      const body =
+        `Name: ${name}\n` +
+        `Email: ${email}\n\n` +
+        `${message}\n\n` +
+        `— Sent from the portfolio contact form`;
 
-      note.textContent = `Thanks, ${name.split(' ')[0]} — your message is ready to send.`;
+      const mailto =
+        `mailto:${OWN_EMAIL}` +
+        `?subject=${encodeURIComponent(finalSubject)}` +
+        `&body=${encodeURIComponent(body)}`;
+
+      window.location.href = mailto;
+
+      note.textContent = 'Opening your email app with the message pre-filled…';
       note.classList.add('ok');
-      form.reset();
     });
   }
 
@@ -111,8 +172,7 @@
           if (!entry.isIntersecting) return;
           const id = entry.target.id;
           navAnchors.forEach((a) => {
-            const active = a.getAttribute('href') === `#${id}`;
-            a.style.color = active ? 'var(--text)' : '';
+            a.style.color = a.getAttribute('href') === `#${id}` ? 'var(--text)' : '';
           });
         });
       },
